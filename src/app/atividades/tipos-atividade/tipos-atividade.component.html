@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<div class="container-fluid m-0 pt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-9">
+        <h1 class="title-page">Gerenciar Tipo de Atividades</h1>
+      </div>
+      <div class="col-lg-3 col-12">
+        <a (click)="open(content); acaoAtividade = 'salvar'; atividade = atvNull" class="btn w-100 button-new-item" pButton pRipple>Novo Tipo de Atividade</a>
+      </div>
+    </div>
+    <div class="my-3">
+      <div class="row">
+        <div class="col-12">
+          <p-table [value]="tipoatividades" [paginator]="true" [rows]="20" [showCurrentPageReport]="true" [responsive]="true">
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="nome">Nome</th>
+                <th>Limite de Horas</th>
+                <th>Ações</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-atv>
+              <tr>
+                <td>{{atv.nome}}</td>
+                <td>{{atv.limiteHoras}} horas</td>
+                <td>
+                  <a class="button-new-item margin-button-action" (click)="open(content); atividade = atv; acaoAtividade = 'editar'" pButton pRipple icon="pi pi-pencil"></a>
+                  <a class="button-new-item margin-button-action" (click)="excluir(atv.id)" pButton pRipple icon="pi pi-times"></a>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Tipo de Atividade</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="nome">Nome</label>
+        <div class="input-group">
+          <input id="nome" name="nome" class="form-control" placeholder="Nome do Tipo de Atividade" [(ngModel)]="atividade.nome">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="decricao">Descrição</label>
+        <div class="input-group">
+          <input id="decricao" name="decricao" class="form-control" placeholder="Descrição do Tipo de Atividade" [(ngModel)]="atividade.descricao">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="limiteHoras">Limite de Horas</label>
+        <div class="input-group">
+          <input id="limiteHoras" type="number" name="limiteHoras" class="form-control" placeholder="Limite de Horas do Tipo de Atividade" [(ngModel)]="atividade.limiteHoras">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button *ngIf="acaoAtividade == 'salvar'" type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Salvar</button>
+    <button *ngIf="acaoAtividade != 'salvar'" type="button" class="btn btn-outline-dark" (click)="modal.close('Edit click')">Editar</button>
+  </div>
+</ng-template>

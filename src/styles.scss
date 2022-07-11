@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '~primeicons/primeicons.css';
+
+body {
+  font-family: Roboto, sans-serif;
+
+  .p-component {
+    @media only screen and (max-width: 992px) {
+      font-size: 12px!important;
+    }
+  }
+
+  .p-button.p-button-icon-only {
+    @media only screen and (max-width: 992px) {
+      width: 1.5rem!important;
+    }
+  }
+
+  input, button, select, optgroup, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .title-page {
+    color: rgb(33,37,41);
+    font-size: 35px;
+    font-weight: 600;
+
+    @media only screen and (max-width: 992px) {
+      font-size: 24px;
+    }
+
+  }
+
+  .title-table{
+    color: rgb(33,37,41);
+    font-size: 25px;
+    font-weight: 400;
+
+    @media only screen and (max-width: 992px) {
+      font-size: 18px;
+    }
+
+  }
+
+  .button-new-item {
+    background-color: #343a40!important;
+    color: #fff!important;
+    border: none!important;
+  }
+
+  .button-new-item:hover {
+    color: #349f41!important;
+    background-color: #343a40!important;
+  }
+
+  .ls-input:enabled:focus {
+    box-shadow: 0 0 0 0.2rem #349f41!important;
+    border-color: #349f41!important;
+  }
+
+  .ls-input:enabled:hover {
+    border-color: #349f41!important;
+  }
+
+  .p-dropdown:not(.p-disabled):focus {
+    box-shadow: 0 0 0 0.2rem #349f41!important;
+    border-color: #349f41!important;
+  }
+
+  .p-dropdown:not(.p-disabled):hover {
+    border-color: #349f41!important;
+  }
+
+
+}

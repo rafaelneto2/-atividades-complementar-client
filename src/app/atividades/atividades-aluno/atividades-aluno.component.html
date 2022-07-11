@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="container-fluid m-0 pt-3 background">
+  <div class="container text-center">
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-12 my-3">
+          <h3>Aluno: {{aluno.nome}}</h3>
+        </div>
+        <app-list-atividades [id]="this.route.snapshot.params.id"></app-list-atividades>
+      </div>
+    </div>
+  </div>
+</div>

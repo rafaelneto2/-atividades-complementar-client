@@ -1,0 +1,43 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-light bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <img class="logo-login pt-1" src="../../../assets/image/logo.png" alt="Lúcia Jóias">
+      </div>
+      <div class="col-10">
+        <a class="navbar-brand font-logo" [routerLink]="'/'">Atividades Complementares IFMG</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container login mt-3 mb-5">
+  <form autocomplete="off" #f="ngForm">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="title-page">Login</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <p-messages [(value)]="msgs" [enableService]="false"></p-messages>
+      <div class="col-12 my-3">
+        <input type="text" [(ngModel)]="user" name="user" class="ls-input w-100" required pInputText placeholder="Registro Acadêmico">
+      </div>
+      <div class="col-12 my-3">
+        <input type="password" [(ngModel)]="password" name="password" class="ls-input w-100" required pInputText placeholder="Senha">
+      </div>
+      <div class="col-12 my-3">
+        <button pButton
+                class="btn btn-xl text-uppercase button-new-item botao w-100"
+                type="submit"
+                [disabled]="!f.valid"
+                (click)="login()">Login</button>
+      </div>
+      <div class="col-12 my-3">
+        <button pButton
+                class="btn btn-xl text-uppercase button-new-item botao w-100" [routerLink]="'/registrarusuario'"
+                >Registrar</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container-fluid m-0 pt-3 background">
+  <div class="container text-center">
+    <div class="mb-3">
+      <span class="seja-bem-vindo">Seja bem-vindo(a), {{ auth.jwtPayload?.usuario }}!</span>
+    </div>
+    <div *ngIf="auth.jwtPayload.role == 'PROFESSOR'">
+      <app-search-user [context]="'alunos'"></app-search-user>
+    </div>
+    <div *ngIf="auth.jwtPayload.role == 'ALUNO'">
+      <app-list-atividades [id]="auth.jwtPayload?.id"></app-list-atividades>
+    </div>
+  </div>
+</div>
+
